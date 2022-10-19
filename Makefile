@@ -1,4 +1,4 @@
-SRCS	= ft_printf.c ft_count_formats.c ft_get_formats.c
+SRCS	= ft_printf.c ft_count_formats.c ft_print_in_format.c ft_numlen.c ft_putpoin.c ft_ptrlen.c
 
 BONUS	=
 

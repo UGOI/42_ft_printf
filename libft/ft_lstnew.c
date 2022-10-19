@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 18:29:58 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/17 08:39:10 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include"libft.h"
+#include<stdlib.h>
 
-int	ft_count_formats(const char *restrict format)
+t_list	*ft_lstnew(void *content)
 {
-	int			args;
-	char const	*convs;
+	t_list	*node;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
-	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
-	}
-	return (args);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

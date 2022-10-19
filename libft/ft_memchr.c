@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/13 08:21:21 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 15:59:46 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <unistd.h>
 
-int	ft_count_formats(const char *restrict format)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int			args;
-	char const	*convs;
+	const unsigned char	*str_cast;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	str_cast = str;
+	while (n--)
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		if (*str_cast == (unsigned char) c)
+			return ((void *) str_cast);
+		str_cast++;
 	}
-	return (args);
+	return (NULL);
 }

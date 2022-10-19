@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/14 20:49:01 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 17:48:23 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include "libft.h"
+#include <stdlib.h>
 
-int	ft_count_formats(const char *restrict format)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int			args;
-	char const	*convs;
+	char			*res;
+	unsigned int	i;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	if (!s)
+		return (0);
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	i = 0;
+	if (!res)
+		return (0);
+	while (s[i])
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		res[i] = f(i, s[i]);
+		i++;
 	}
-	return (args);
+	res[i] = '\0';
+	return (res);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 10:29:24 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/17 08:47:17 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
-
-int	ft_count_formats(const char *restrict format)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int			args;
-	char const	*convs;
+	unsigned int	i;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	if (!s)
+		return ;
+	i = 0;
+	while (*s)
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		f(i++, s++);
 	}
-	return (args);
+	*s = '\0';
 }

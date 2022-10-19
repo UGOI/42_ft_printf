@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 19:33:39 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/17 08:39:41 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include"libft.h"
 
-int	ft_count_formats(const char *restrict format)
+int	ft_lstsize(t_list *lst)
 {
-	int			args;
-	char const	*convs;
+	int	len;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	len = 0;
+	while (lst)
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		lst = lst->next;
+		len++;
 	}
-	return (args);
+	return (len);
 }

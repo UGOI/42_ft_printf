@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 23:07:19 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 21:53:45 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include"libft.h"
+#include<stdlib.h>
 
-int	ft_count_formats(const char *restrict format)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int			args;
-	char const	*convs;
+	t_list	*next_lst;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	if (!lst || !del)
+		return ;
+	if (!*lst)
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		free(*lst);
+		return ;
 	}
-	return (args);
+	while (*lst)
+	{
+		next_lst = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = next_lst;
+	}
 }

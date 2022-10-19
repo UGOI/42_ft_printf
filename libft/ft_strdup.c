@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/13 11:07:07 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 22:51:21 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <stdlib.h>
+#include "libft.h"
 
-int	ft_count_formats(const char *restrict format)
+static char	*ft_strcpy(char *dest, char *src)
 {
-	int			args;
-	char const	*convs;
+	int	i;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	return (args);
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strdup(const char *src)
+{
+	char	*res;
+
+	res = malloc((ft_strlen(src) + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	return ((char *)ft_strcpy(res, (char *)src));
 }

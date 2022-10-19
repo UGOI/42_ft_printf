@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putpoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 11:16:20 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:36:39 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/19 01:56:11 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/19 02:24:51 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,28 @@
 #include "libft/libft.h"
 #define CONVS "cspdiuxX"
 
-int	ft_printf(const char *restrict format, ...)
+void	ft_putpoin_fd(void *ptr, int fd)
 {
-	va_list		ap;
-	char const	*convs;
-	int			count;
+	unsigned char	buf[sizeof(ptr)];
+	int				i;
+	unsigned char	hi;
+	unsigned char	lo;
+	char			tmp[2];
 
-	count = 0;
-	convs = CONVS;
-	va_start(ap, format);
-	while (*format)
+	i = sizeof(ptr) - 1;
+	ft_memcpy(buf, &ptr, sizeof(ptr));
+
+	while (i >= 0)
 	{
-		if (*format != '%')
-		{
-			ft_putchar_fd(*format, 1);
-			count++;
-		}
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-			{
-				count += ft_print_in_format(*format, ap);
-			}
-			format++;
-		}
+		hi = (buf[i] >> 4) & 0xf;
+		lo = buf[i] & 0xf;
+		tmp[0] = hi;
+		tmp[1] = lo;
+
+		tmp[0] += hi < 10 ? '0' : 'a' - 10;
+		tmp[1] += lo < 10 ? '0' : 'a' - 10;
+
+		write(fd, tmp, 2);
+		i--;
 	}
-	va_end(ap);
-	return (count);
 }

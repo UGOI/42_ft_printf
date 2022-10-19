@@ -6,14 +6,18 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:34:13 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/17 18:03:36 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/19 12:23:52 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBPRINTF_H
+# define LIBPRINTF_H
+# include<stdarg.h>
 
 int		ft_count_formats(const char *restrict format);
-char	*ft_get_formats(const char *restrict format);
 int		ft_printf(const char *restrict format, ...);
+int		ft_print_in_format(char conv, va_list	ap);
+int		ft_numlen(int n);
+void	ft_putpoin_fd(void *ptr, int fd);
+int		ft_ptrlen(void *ptr);
 #endif

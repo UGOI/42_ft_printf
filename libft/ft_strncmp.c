@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/09/18 13:47:30 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 20:16:31 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <unistd.h>
 
-int	ft_count_formats(const char *restrict format)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int			args;
-	char const	*convs;
+	unsigned int		i;
+	const char unsigned	*s1_cast;
+	const char unsigned	*s2_cast;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
-	{
-		if (*format++ == '%')
-		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
-		}
-	}
-	return (args);
+	s1_cast = (const char unsigned *)s1;
+	s2_cast = (const char unsigned *)s2;
+	if (n == 0)
+		return (0);
+	i = 0;
+	while ((s1_cast[i] != '\0') && (s2_cast[i] != '\0')
+		&& (s1_cast[i] == s2_cast[i]) && i < (n - 1))
+		i++;
+	return (s1_cast[i] - s2_cast[i]);
 }

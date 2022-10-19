@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/13 08:51:05 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/17 08:50:32 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <unistd.h>
 
-int	ft_count_formats(const char *restrict format)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int			args;
-	char const	*convs;
+	size_t				i;
+	size_t				i2;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	i = 0;
+	if (!(*to_find) || to_find == NULL)
+		return ((char *) str);
+	while ((i < len && str[i]))
 	{
-		if (*format++ == '%')
+		i2 = 0;
+		while (to_find[i2] == str[i + i2] && i + i2 < len)
 		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
+			i2++;
+			if (to_find[i2] == '\0')
+				return ((char *) str + i);
 		}
+		i++;
 	}
-	return (args);
+	return (NULL);
 }

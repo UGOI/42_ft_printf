@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_formats.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/17 18:11:43 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/12 07:32:34 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/17 08:49:08 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "Libft/libft.h"
-#include"stdlib.h"
-#define CONVS "cspdiuxX"
+#include "libft.h"
 
-char	*ft_get_formats(const char *restrict format)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char const	*convs;
-	char		*formats;
-	int			i;
+	unsigned int	i;
+	unsigned int	src_len;
 
-	formats = malloc(sizeof(char) * (ft_count_formats(format) + 1));
-	convs = CONVS;
 	i = 0;
-	while (*format)
+	src_len = ft_strlen(src);
+	if (size != 0)
 	{
-		if (*format++ == '%')
+		while (src[i] != '\0' && i < (size - 1))
 		{
-			if (ft_strchr(convs, *format) && *format)
-				formats[i++] = *format;
+			dest[i] = src[i];
+			i++;
 		}
+		dest[i] = '\0';
 	}
-	formats[i] = '\0';
-	return (formats);
+	return (src_len);
 }

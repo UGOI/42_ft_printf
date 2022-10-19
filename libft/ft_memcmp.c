@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_formats.c                                 :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:35:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:25:30 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/13 08:37:37 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/18 17:14:15 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <unistd.h>
 
-int	ft_count_formats(const char *restrict format)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int			args;
-	char const	*convs;
+	const char unsigned	*s1_cast;
+	const char unsigned	*s2_cast;
 
-	convs = CONVS;
-	args = 0;
-	while (*format)
+	s1_cast = s1;
+	s2_cast = s2;
+	if (n == 0)
+		return (0);
+	if (n != 0)
 	{
-		if (*format++ == '%')
+		while (n--)
 		{
-			if (ft_strchr(convs, *format) && *format)
-				args++;
+			if (*s1_cast != *s2_cast)
+			{
+				return (*s1_cast - *s2_cast);
+			}
+			s1_cast++;
+			s2_cast++;
 		}
 	}
-	return (args);
+	return (0);
 }
