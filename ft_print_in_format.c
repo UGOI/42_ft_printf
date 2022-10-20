@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:55:44 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 18:51:37 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/20 19:46:12 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 
 int	ft_print_in_format(char conv, va_list ap)
 {
-	char	*str;
-	int		num;
-	void	*ptr;
+	char			*str;
+	int				num;
+	int				u_num;
+	unsigned int	hex;
+	void			*ptr;
 
 	if (conv == 's')
 	{
@@ -30,7 +32,7 @@ int	ft_print_in_format(char conv, va_list ap)
 	}
 	if (conv == 'd')
 	{
-		num = va_arg(ap, int);
+		num = va_arg(ap, signed int);
 		ft_putnbr_fd(num, 1);
 		return (ft_numlen(num));
 	}
@@ -42,8 +44,30 @@ int	ft_print_in_format(char conv, va_list ap)
 	if (conv == 'p')
 	{
 		ptr = va_arg(ap, void *);
-		ft_putpoin_fd(ptr, 1);
+		ft_putpoin(ptr);
 		return (ft_ptrlen(ptr));
+	}
+	if (conv == 'x')
+	{
+		hex = va_arg(ap, unsigned int);
+		ft_putnbr_base(hex, "0123456789abcdef");
+	}
+	if (conv == 'X')
+	{
+		hex = va_arg(ap, unsigned int);
+		ft_putnbr_base(hex, "0123456789ABCDEF");
+	}
+	if (conv == 'i')
+	{
+		num = va_arg(ap, int);
+		ft_putnbr_fd(num, 1);
+		return (ft_numlen(num));
+	}
+	if (conv == 'u')
+	{
+		u_num = va_arg(ap, unsigned int);
+		ft_put_unsig_nbr_fd(u_num, 1);
+		return (ft_numlen(u_num));
 	}
 	return (0);
 }

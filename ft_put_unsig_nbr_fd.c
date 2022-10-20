@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   driver.c                                           :+:      :+:    :+:   */
+/*   ft_put_unsig_nbr_fd.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:14:04 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 18:46:40 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 11:04:38 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/20 19:31:24 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libprintf.h"
-#include"stdio.h"
+#include"libft/libft.h"
 
-int	main(void)
+void	ft_put_unsig_nbr_fd(int unsigned n, int fd)
 {
-	int age = 19;
-	ft_printf("Hello I'm %s I'm %d years old and my surname starts with %c. The address of my age var is %p. Bye!\n", "Stefan", age, 'D', &age);
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
+	return ;
 }
