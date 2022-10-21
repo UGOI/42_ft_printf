@@ -6,13 +6,13 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:21:58 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/20 15:03:47 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 18:04:10 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-int	ft_get_str_legth(char *str)
+static int	ft_get_str_legth(char *str)
 {
 	int	res;
 
@@ -22,7 +22,7 @@ int	ft_get_str_legth(char *str)
 	return (res);
 }
 
-int	ft_i_of_base(char *base, char c)
+static int	ft_i_of_base(char *base, char c)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_i_of_base(char *base, char c)
 	return (0);
 }
 
-int	ft_is_in_base(char c, char *base)
+static int	ft_is_in_base(char c, char *base)
 {
 	int	i;
 

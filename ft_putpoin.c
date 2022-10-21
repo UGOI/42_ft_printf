@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 01:56:11 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/20 17:42:28 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 18:07:01 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 #include <stdio.h>
 #include "libprintf.h"
 #include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#include <stdint.h>
 
 void	ft_putpoin(void *ptr)
 {
-	ft_putnbr_base((int) ptr, "0123456789abcdef");
+	unsigned long int	number;
+
+	number = (unsigned long int)ptr;
+	ft_putstr_fd("0x", 1);
+	ft_put_unsig_long_nbr_base(number, "0123456789abcdef");
 }

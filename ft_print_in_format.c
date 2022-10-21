@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:55:44 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/20 19:46:12 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 20:02:03 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,26 @@
 #include <stdio.h>
 #include "libprintf.h"
 #include "libft/libft.h"
-#define CONVS "cspdiuxX"
 
 int	ft_print_in_format(char conv, va_list ap)
 {
-	char			*str;
-	int				num;
-	int				u_num;
-	unsigned int	hex;
-	void			*ptr;
-
 	if (conv == 's')
-	{
-		str = va_arg(ap, char *);
-		ft_putstr_fd(str, 1);
-		return (ft_strlen(str));
-	}
+		return (ft_print_s(va_arg(ap, char *)));
 	if (conv == 'd')
-	{
-		num = va_arg(ap, signed int);
-		ft_putnbr_fd(num, 1);
-		return (ft_numlen(num));
-	}
+		return (ft_print_d(va_arg(ap, signed int)));
 	if (conv == 'c')
-	{
-		ft_putchar_fd((char)va_arg(ap, int), 1);
-		return (1);
-	}
+		return (ft_print_c((char)va_arg(ap, int)));
 	if (conv == 'p')
-	{
-		ptr = va_arg(ap, void *);
-		ft_putpoin(ptr);
-		return (ft_ptrlen(ptr));
-	}
+		return (ft_print_p(va_arg(ap, void *)));
 	if (conv == 'x')
-	{
-		hex = va_arg(ap, unsigned int);
-		ft_putnbr_base(hex, "0123456789abcdef");
-	}
+		return (ft_print_x(va_arg(ap, unsigned int)));
 	if (conv == 'X')
-	{
-		hex = va_arg(ap, unsigned int);
-		ft_putnbr_base(hex, "0123456789ABCDEF");
-	}
+		return (ft_print_bigx(va_arg(ap, unsigned int)));
 	if (conv == 'i')
-	{
-		num = va_arg(ap, int);
-		ft_putnbr_fd(num, 1);
-		return (ft_numlen(num));
-	}
+		return (ft_print_i(va_arg(ap, int)));
 	if (conv == 'u')
-	{
-		u_num = va_arg(ap, unsigned int);
-		ft_put_unsig_nbr_fd(u_num, 1);
-		return (ft_numlen(u_num));
-	}
+		return (ft_print_u(va_arg(ap, unsigned int)));
+	if (conv == '%')
+		return (ft_print_c('%'));
 	return (0);
 }

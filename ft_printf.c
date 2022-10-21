@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:16:20 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/19 01:36:39 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 15:29:11 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libprintf.h"
 #include "libft/libft.h"
-#define CONVS "cspdiuxX"
+#define CONVS "cspdiuxX%"
 
 int	ft_printf(const char *restrict format, ...)
 {

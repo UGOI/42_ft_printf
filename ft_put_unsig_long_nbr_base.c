@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_put_unsig_long_nbr_base.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 20:21:24 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 17:32:07 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 17:31:34 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-static int	ft_get_str_legth(char *str)
+static unsigned long int	ft_get_str_length(char *str)
 {
-	int	res;
+	unsigned long int	res;
 
 	res = 0;
 	while (str[res])
@@ -27,7 +27,7 @@ static int	ft_check_base(char *base)
 	int	i;
 	int	j;
 
-	if (ft_get_str_legth(base) <= 1)
+	if (ft_get_str_length(base) <= 1)
 		return (0);
 	i = 0;
 	j = 1;
@@ -47,18 +47,11 @@ static int	ft_check_base(char *base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_put_unsig_long_nbr_base(unsigned long int nbr, char *base)
 {
 	if (!ft_check_base(base))
 		return ;
-	if (nbr == -2147483648)
-		return ;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		write(1, "-", 1);
-	}
-	if (nbr >= ft_get_str_legth(base))
-		ft_putnbr_base(nbr / ft_get_str_legth(base), base);
-	write(1, &base[nbr % ft_get_str_legth(base)], 1);
+	if (nbr >= ft_get_str_length(base))
+		ft_put_unsig_long_nbr_base(nbr / ft_get_str_length(base), base);
+	write(1, &base[nbr % ft_get_str_length(base)], 1);
 }
