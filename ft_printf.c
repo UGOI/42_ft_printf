@@ -6,13 +6,13 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:16:20 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 21:06:47 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:20:37 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
-#include "libprintf.h"
+#include "ft_printf.h"
 #include "libft/libft.h"
 #define CONVS "cspdiuxX%"
 

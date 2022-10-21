@@ -6,11 +6,11 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:14:04 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 21:07:50 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:20:37 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../libprintf.h"
+#include"../ft_printf.h"
 #include"stdio.h"
 
 int	main(void)
