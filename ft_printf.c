@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:16:20 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 15:29:11 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:06:47 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int	ft_printf(const char *restrict format, ...)
 		{
 			if (ft_strchr(convs, *format) && *format)
 			{
+				// printf("count: %d\n", count);
 				count += ft_print_in_format(*format, ap);
+				// printf("count: %d\n", count);
 			}
 			format++;
 		}

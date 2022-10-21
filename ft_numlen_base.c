@@ -6,20 +6,22 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 01:42:32 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 20:10:42 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:14:15 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_numlen_base(unsigned int n, int base)
+#include<stdio.h>
+
+int	ft_numlen_base(long int n, int base)
 {
 	int	size;
 
 	size = 1;
 	if (n < 0)
 		size++;
-	while (n >= base || n <= -base)
+	while (n >= (long int) base || n <= -((long int) base))
 	{
-		n = n / base;
+		n = n / (long int) base;
 		size++;
 	}
 	return (size);

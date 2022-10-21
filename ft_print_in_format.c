@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:55:44 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 20:02:03 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:00:54 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_print_in_format(char conv, va_list ap)
 	if (conv == 'p')
 		return (ft_print_p(va_arg(ap, void *)));
 	if (conv == 'x')
-		return (ft_print_x(va_arg(ap, unsigned int)));
+		return (ft_print_x(va_arg(ap, unsigned long int)));
 	if (conv == 'X')
-		return (ft_print_bigx(va_arg(ap, unsigned int)));
+		return (ft_print_bigx(va_arg(ap, unsigned long int)));
 	if (conv == 'i')
 		return (ft_print_i(va_arg(ap, int)));
 	if (conv == 'u')

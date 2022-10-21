@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 02:31:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 18:06:42 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:15:18 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	ft_ptrlen(void *ptr)
 {
-	int				i;
+	int	len;
 
-	i = 2 * sizeof(ptr);
-	return (0);
+	len = ft_numlen_base((unsigned long int)(ptr), 16) + 2;
+	return (len);
 }
