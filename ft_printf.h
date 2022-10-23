@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:34:13 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 18:06:18 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 19:14:33 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_ptrlen(void *ptr);
 void	ft_putnbr_base(int nbr, char *base);
 void	ft_put_unsig_nbr_fd(int unsigned n, int fd);
 void	ft_put_unsig_long_nbr_base(unsigned long long nbr, char *base);
-int		ft_numlen_base(unsigned int n, int base);
+int		ft_numlen_base(unsigned long long n, int base);
 
 int		ft_print_s(char	*str);
 int		ft_print_d(signed int arg);
