@@ -6,14 +6,13 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 01:56:11 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 16:32:57 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 19:25:15 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include "ft_printf.h"
-#include "libft/libft.h"
 #include <stdint.h>
 
 void	ft_putpoin(void *ptr)

@@ -6,11 +6,11 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 11:04:38 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 17:23:20 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 19:29:01 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft/libft.h"
+#include "ft_printf.h"
 
 void	ft_put_unsig_nbr_fd(unsigned int n, int fd)
 {

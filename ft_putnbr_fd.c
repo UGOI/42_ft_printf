@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:07:07 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/18 22:51:21 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/15 11:04:38 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/23 19:23:41 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "ft_printf.h"
 
-static char	*ft_strcpy(char *dest, char *src)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	if (n == -2147483648)
 	{
-		dest[i] = src[i];
-		i++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char	*res;
-
-	res = malloc((ft_strlen(src) + 1) * sizeof(char));
-	if (!res)
-		return (NULL);
-	return ((char *)ft_strcpy(res, (char *)src));
+	if (n < 0)
+	{
+		n *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
+	return ;
 }
