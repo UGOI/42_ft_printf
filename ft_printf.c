@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:16:20 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 21:20:37 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:55:19 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft/libft.h"
 #define CONVS "cspdiuxX%"
 
-int	ft_printf(const char *restrict format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	char const	*convs;
@@ -36,9 +36,7 @@ int	ft_printf(const char *restrict format, ...)
 		{
 			if (ft_strchr(convs, *format) && *format)
 			{
-				// printf("count: %d\n", count);
 				count += ft_print_in_format(*format, ap);
-				// printf("count: %d\n", count);
 			}
 			format++;
 		}

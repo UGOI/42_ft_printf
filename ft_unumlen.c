@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptrlen.c                                        :+:      :+:    :+:   */
+/*   ft_unumlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 02:31:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 16:59:09 by sdukic           ###   ########.fr       */
+/*   Created: 2022/10/19 01:42:32 by sdukic            #+#    #+#             */
+/*   Updated: 2022/10/23 17:33:50 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "ft_printf.h"
-#include "libft/libft.h"
-
-int	ft_ptrlen(void *ptr)
+int	ft_unumlen(unsigned int n)
 {
-	int	len;
+	int	size;
 
-	len = ft_numlen_base((unsigned long long)(ptr), 16) + 2;
-	return (len);
+	size = 1;
+	while (n >= 10)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }

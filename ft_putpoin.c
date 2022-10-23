@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 01:56:11 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 21:20:37 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:32:57 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 void	ft_putpoin(void *ptr)
 {
-	unsigned long int	number;
+	unsigned long long	number;
 
-	number = (unsigned long int)ptr;
+	number = (unsigned long long)ptr;
 	ft_putstr_fd("0x", 1);
 	ft_put_unsig_long_nbr_base(number, "0123456789abcdef");
 }

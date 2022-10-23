@@ -6,15 +6,15 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 20:21:24 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 17:31:34 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:34:47 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-static unsigned long int	ft_get_str_length(char *str)
+static unsigned long long	ft_get_str_length(char *str)
 {
-	unsigned long int	res;
+	unsigned long long	res;
 
 	res = 0;
 	while (str[res])
@@ -47,7 +47,7 @@ static int	ft_check_base(char *base)
 	return (1);
 }
 
-void	ft_put_unsig_long_nbr_base(unsigned long int nbr, char *base)
+void	ft_put_unsig_long_nbr_base(unsigned long long nbr, char *base)
 {
 	if (!ft_check_base(base))
 		return ;

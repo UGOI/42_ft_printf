@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:44:32 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 21:20:37 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:32:21 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@
 int	ft_print_p(void *arg)
 {
 	ft_putpoin(arg);
-	printf("\nptr %p\n", arg);
-	printf("\nptrlen: %d\n", ft_ptrlen(arg));
 	return (ft_ptrlen(arg));
 }

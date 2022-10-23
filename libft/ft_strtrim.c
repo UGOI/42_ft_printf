@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:27:21 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/18 22:55:47 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:25:20 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ static char	*ft_skip_first(char const *s1, char const *set)
 
 static char	*ft_skip_last(char const *s1, char const *set)
 {
-	int	set_len;
 	int	s1_len;
 
-	set_len = ft_strlen(set);
 	s1_len = ft_strlen(s1);
 	while (*s1)
 		s1++;

@@ -6,7 +6,7 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 20:21:24 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/21 17:32:07 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 17:59:10 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,11 @@ static int	ft_check_base(char *base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(unsigned int nbr, char *base)
 {
 	if (!ft_check_base(base))
 		return ;
-	if (nbr == -2147483648)
-		return ;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		write(1, "-", 1);
-	}
-	if (nbr >= ft_get_str_legth(base))
+	if (nbr >= (unsigned int) ft_get_str_legth(base))
 		ft_putnbr_base(nbr / ft_get_str_legth(base), base);
 	write(1, &base[nbr % ft_get_str_legth(base)], 1);
 }
