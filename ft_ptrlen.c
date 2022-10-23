@@ -6,12 +6,11 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 02:31:33 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 19:25:12 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 19:53:46 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
 int	ft_ptrlen(void *ptr)

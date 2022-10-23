@@ -6,12 +6,11 @@
 /*   By: sdukic <sdukic@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:55:44 by sdukic            #+#    #+#             */
-/*   Updated: 2022/10/23 19:24:57 by sdukic           ###   ########.fr       */
+/*   Updated: 2022/10/23 19:53:29 by sdukic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
 int	ft_print_in_format(char conv, va_list ap)
